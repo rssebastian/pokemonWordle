@@ -16,3 +16,13 @@ export interface Answer {
 export interface Trait {
     [index: string]: string | string[]
 }
+
+export interface Pokemon {
+    name: string,
+    img: string,
+    types: string[],
+    mainColor: string,
+    eggGroups: string[],
+    shape: string,
+    generation: string
+}

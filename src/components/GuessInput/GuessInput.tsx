@@ -21,10 +21,10 @@ const GuessInput = () => {
         {region: 'kanto'}
     ]
     const guess = await checkGuess(dummyGuess, answer);
-    await setGuesses([...guesses, guess]);
-    await setGuess('');
-    await setGuessed(true);
-    await console.log(guesses);
+    console.log(guess)
+    setGuesses([...guesses, guess]);
+    setGuess('');
+    setGuessed(true);
   }
 
   const onChangeHandler = (e:React.ChangeEvent<HTMLInputElement>) => {

@@ -9,7 +9,7 @@ const Game = () => {
     return (
         <>
             <GuessInput />
-            {guessed && <GuessesContainer/>}
+            {guessed ? <GuessesContainer/> : null}
         </>
   )
 }

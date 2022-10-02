@@ -1,34 +1,25 @@
 
-import {useEffect, useState} from 'react'
+import {FC, useEffect, useState} from 'react'
 import Logo from './components/Logo/Logo';
 import Instructions from './components/Instructions/Instructions';
 import Game from './components/Game/Game';
 import {AnswerContext} from './contexts/AnswerContext';
+import {Pokemon} from './interfaces'
+import buildPokemon from './utils/buildPokemon';
 import './App.sass';
 
-function App() {
-  const bulbasaur = {
-    name: 'bulbasaur',
-    img: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
-    type: ['grass', 'poison'],
-    mainColor: 'green',
-    eggGroup: ['monster', 'plant'],
-    shape: 'quadruped',
-    region: 'kanto'
-  }
-    
-  const [answer, setAnswer] = useState(bulbasaur);
-  const [guessed, setGuessed] = useState(false);
-  const [guesses, setGuesses] = useState([]);
+const App: FC = () => {    
+  const [answer, setAnswer] = useState<Pokemon>({} as Pokemon);
+  const [guessed, setGuessed] = useState<boolean>(false);
+  const [guesses, setGuesses] = useState<Pokemon[]>([]);
   
-  // useEffect(() => {
-  //   const fetchAnswer = async () => {
-  //     const response = await fetch('https://pokeapi.co/api/v2/pokemon/ditto');
-  //     const data = await response.json();
-  //     setAnswer(data);
-  //   }
-  //   fetchAnswer();
-  // }, [])
+  useEffect(() => {
+    const getAnswer = async () => {
+      const pokemon = await buildPokemon("mew");
+      setAnswer(pokemon);
+    }
+    getAnswer();
+  }, [])
 
   return (
       <div className="App">
