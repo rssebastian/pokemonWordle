@@ -3,6 +3,7 @@ import {FC, useEffect, useState} from 'react'
 import Logo from './components/Logo/Logo';
 import Instructions from './components/Instructions/Instructions';
 import Game from './components/Game/Game';
+import Footer from './components/Footer/Footer';
 import {GameContext} from './contexts/GameContext';
 import {Pokemon, AppContextInterface, Guess} from './interfaces'
 import buildPokemon from './utils/buildPokemon';
@@ -21,7 +22,8 @@ const App: FC = () => {
 
   useEffect(() => {
     const getAnswer = async ():Promise<void> => {
-      const pokemon = await buildPokemon("mew");
+      const todaysPkmn = Math.floor(Math.random()*(904) + 1)
+      const pokemon = await buildPokemon(todaysPkmn);
       setAnswer(pokemon);
     }
     getAnswer();
@@ -34,6 +36,7 @@ const App: FC = () => {
         <GameContext.Provider value={appContext}>
           <Game />
         </GameContext.Provider>
+        <Footer />
       </div>
   );
 }
