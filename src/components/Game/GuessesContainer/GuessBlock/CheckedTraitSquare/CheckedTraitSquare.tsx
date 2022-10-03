@@ -1,4 +1,4 @@
-import './GuessTraitSquare.sass'
+import './CheckedTraitSquare.sass'
 
 const GuessTraitSquare = ({values, background}: {values: string | string[], background: string}) => {
     if (background === 'img') {

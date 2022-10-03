@@ -3,18 +3,24 @@ import {FC, useEffect, useState} from 'react'
 import Logo from './components/Logo/Logo';
 import Instructions from './components/Instructions/Instructions';
 import Game from './components/Game/Game';
-import {AnswerContext} from './contexts/AnswerContext';
-import {Pokemon} from './interfaces'
+import {GameContext} from './contexts/GameContext';
+import {Pokemon, AppContextInterface, Guess} from './interfaces'
 import buildPokemon from './utils/buildPokemon';
 import './App.sass';
 
 const App: FC = () => {    
   const [answer, setAnswer] = useState<Pokemon>({} as Pokemon);
   const [guessed, setGuessed] = useState<boolean>(false);
-  const [guesses, setGuesses] = useState<Pokemon[]>([]);
+  const [guesses, setGuesses] = useState<Guess[]>([]);
   
+  const appContext:AppContextInterface = {
+    answer, setAnswer,
+    guessed, setGuessed,
+    guesses, setGuesses
+  }
+
   useEffect(() => {
-    const getAnswer = async () => {
+    const getAnswer = async ():Promise<void> => {
       const pokemon = await buildPokemon("mew");
       setAnswer(pokemon);
     }
@@ -25,9 +31,9 @@ const App: FC = () => {
       <div className="App">
         <Logo />
         <Instructions />
-        <AnswerContext.Provider value={{answer, guessed, setGuessed, guesses, setGuesses}}>
+        <GameContext.Provider value={appContext}>
           <Game />
-        </AnswerContext.Provider>
+        </GameContext.Provider>
       </div>
   );
 }

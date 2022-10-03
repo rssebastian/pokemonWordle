@@ -1,6 +1,7 @@
+import {FC} from 'react'
 import './Instructions.sass'
 
-const Instructions = () => {
+const Instructions:FC = () => {
   return (
     <div className='instructions'>
         <p>Guess today's Pokemon!</p>

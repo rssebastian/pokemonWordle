@@ -1,15 +1,15 @@
-import {useContext} from 'react';
+import {FC, useContext} from 'react';
 
-import GuessInput from '../GuessInput/GuessInput';
-import GuessesContainer from '../GuessesContainer/GuessesContainer';
-import {AnswerContext} from '../../contexts/AnswerContext';
+import GuessInput from './GuessInput/GuessInput';
+import GuessesContainer from './GuessesContainer/GuessesContainer';
+import {GameContext} from '../../contexts/GameContext';
 
-const Game = () => {
-    const {guessed} = useContext(AnswerContext);
+const Game:FC = () => {
+    const context = useContext(GameContext);
     return (
         <>
             <GuessInput />
-            {guessed ? <GuessesContainer/> : null}
+            {context?.guessed ? <GuessesContainer/> : null}
         </>
   )
 }

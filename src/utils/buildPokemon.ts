@@ -1,10 +1,11 @@
-// Takes in the id of a pokemon or the string and builds a pokemon object
+// Takes in the id of a Pokemon or the string and builds a Pokemon object
+
 import axios from 'axios';
 import {Pokemon} from '../interfaces'
 
 type Args = string | number;
 
-const buildPokemon = async (id:Args) => {
+const buildPokemon = async (id:Args):Promise<Pokemon> => {
     const pokemon = {} as Pokemon;
     try {
         const {data} = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
