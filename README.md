@@ -1,46 +1,53 @@
-# Getting Started with Create React App
+# Pokemon Wordle
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This web app is a project I started for fun to learn how to use Typescript and SASS in React! I plan on continually iterating on this project, stay tuned for updates! List of ideas I have in mind are listed below.
 
-## Available Scripts
+## How To Play
 
-In the project directory, you can run:
+Here's a demo!
 
-### `npm start`
+![Demo](docs/demo.gif)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Type in the name of any Pokemon,
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Input](docs/input.png)
 
-### `npm test`
+and see if you can figure out which one it is based on the clues!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Input](docs/indicators.png)
 
-### `npm run build`
+Links are provided on the side if you need a list of Pokemon to help you guess
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Help](docs/help.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deployment
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This project is currently deployed at https://pokemon-wordle.netlify.app
 
-### `npm run eject`
+## Patches
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1.0 (10/3/2022) First implementation of the game <3
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Projected Updates
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+(in no particular order)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Add in the possibilities of regional-variants as separate entries
+- Have the Pokemon set for the day instead of changing to a new one on refresh
+- Add in additional fields like "can evolve", "part of evolution", "evolution criteria", etc.
+- Make the input field populate suggestions to prevent possible bad queries (I'm not sure how regional variants are handled by the API, will do more research)
+- Section off game modes so players can choose to play with Gen I, Gen II, etc. Pokemon only, or play with all 900+ being possible
+- Make the page more mobile-friendly
+- Utilize more SASS-specific features for repeated code
+- Add a colorblind mode for improved accessibility
+- Anything I can think of to improve the player's quality of life :)
 
-## Learn More
+## Tech Stack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Client:** React, SASS, Typescript
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Server:** Node
+
+## Acknowledgements
+
+- [Pimeko](https://ko-fi.com/pimeko) - I play LoLdle every night with my girlfriend and was inspired to replicate the game to practice my front-end development skills. Thanks for making a fun game!

@@ -21,6 +21,8 @@ const GuessInput:FC = () => {
       context?.setGuesses([...context?.guesses, guessChecked]);
       setGuess('');
       context?.setGuessed(true);
+
+      if (userGuess.name === context?.answer?.name) setTimeout(() => context?.setShowModal(true), 3000);
     }  
   }
   
